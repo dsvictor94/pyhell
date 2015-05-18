@@ -1,11 +1,11 @@
-## pyhell
+# pyhell
 
-# require:
+## require:
 
 - "ghc" installed and available in the PATH
 - "ghc-mod" installed and available in the PATH
 
-# use:
+## use:
 
 ```python
 >>> from pyhell import autoenable
@@ -22,7 +22,7 @@ ehllpy
 >>> #now the code was executed
 ```
 
-# TODO
+## TODO
 
 - rewrite the README
 - write a decent setup.py
