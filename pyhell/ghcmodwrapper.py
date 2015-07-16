@@ -5,6 +5,5 @@ def browse(module):
     return [sig.split(" :: ")[0] for sig in out.splitlines()]
 
 def modules():
-    print("listing modules")
     out = check_output(["ghc-mod", "modules"], universal_newlines=True)
     return out.splitlines()

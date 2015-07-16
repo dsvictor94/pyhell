@@ -17,11 +17,12 @@ class HaskellFunction:
         if len(args) == 0:
             return self
         code = "({})".format(self.hs_code)
-        for arg in args:
-            if type(arg) in self.__class__.wrappers:
-                arg = HaskellFunction.wrappers[type(arg)]
-            code = "({} {})".format(self.hs_code, arg.hs_code)
-        return HaskellFunction.from_string(code)
+        arg = args[0]
+        if type(arg) in self.__class__.wrappers:
+            arg = HaskellFunction.wrappers[type(arg)]
+        code = "({} {})".format(self.hs_code, arg.hs_code)
+        n = HaskellFunction.from_string(code)
+        return n(*args[1:])
 
     def __repr__(self):
         return "<haskell '{}'>".format(self.hs_code)
@@ -30,7 +31,6 @@ class HaskellFunction:
     def from_string(code, sig=''):
         f = HaskellFunction.__new__(HaskellFunction)
         f.hs_code = code
-        f.hs_sig = sig
         return f
 
 
